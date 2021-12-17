@@ -23,30 +23,35 @@ void    my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
     char *dst;
 
-    dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+    dst = data->addr + (y * data->line_len + x * (data->bits_per_pixel / 8));
     *(unsigned int*)dst = color;
 }
 
 void    init_image()
 {
-    void    *mlx;
-    void    *mlx_win;
-    t_data  img;
+    t_vars  vars;
+    t_vars img;
     
 
-    mlx = mlx_init();
-    mlx_win = mlx_new_window(mlx, 640, 340, "so_long");
-    img.img = mlx_new_image(mlx, 640, 340);
-    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-                    &img.endian);
-    my_mlx_pixel_put(&img, 5, 5, 0x0000FF00);
-    mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-    mlx_loop(mlx);
+    vars.mlx = mlx_init();
+    vars.mlx_win = mlx_new_window(vars.mlx, 640, 340, "so_long");
+    img.img.mlx_img = mlx_new_image(vars.mlx, 640, 340);
+    img.img.addr = mlx_get_data_addr(img.img.mlx_img, &img.img.bits_per_pixel, &img.img.line_len,
+                    &img.img.endian);
+    my_mlx_pixel_put(&img.img, 5, 5, 0x0000FF00);
+    my_mlx_pixel_put(&img.img, 6, 6, 0x00FF0000);
+    mlx_put_image_to_window(vars.mlx, vars.mlx_win, img.img.mlx_img, 0, 0);
+    mlx_hook(vars.mlx_win, 2, 1L<<0, &close_win, &vars);
+    mlx_loop(vars.mlx);
     
 }
 
 int main()
 {
+    t_vars *vars;
+
+    int a = close_win(VK_ESCAPE, vars);
     init_image();
+
     return (0);
 }

@@ -14,14 +14,27 @@
 # define SO_LONG
 
 # include <mlx.h>
+# include <stdlib.h>
+
+
+# define XK_Escape
 
 typedef struct  s_data
 {
-    void    *img;
+    void    *mlx_img;
     char    *addr;
     int bits_per_pixel;
-    int line_length;
+    int line_len;
     int endian;
 }   t_data;
+
+typedef struct s_vars
+{
+    void    *mlx;
+    void    *mlx_win;
+    t_data  img;
+}   t_vars;
+
+
 
 #endif
