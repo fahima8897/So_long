@@ -6,7 +6,7 @@
 #    By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 13:47:55 by fboumell          #+#    #+#              #
-#    Updated: 2021/12/16 14:47:15 by fboumell         ###   ########.fr        #
+#    Updated: 2021/12/17 11:07:41 by fboumell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,18 @@ OBJS = ${SRCS:.c=.o}
 
 all	: ${NAME}
 
-#$(NAME) : $(OBJS) ${OBJS_B}
-	${CC} ${CFLAGS} ${SRCS} -o ${NAME}
+#For object files, you could add the following rule 
+#to your makefile, assuming that you have the mlx 
+#source in a directory named mlx in the root of your project:
+%.o: %.c
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
+#$(NAME) : $(OBJS) ${OBJS_B}
+#	${CC} ${CFLAGS} ${SRCS} -o ${NAME}
+
+#$(NAME): $(OBJS) $(OBJS_B)
+	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+#pour linker l'API macos interne necessaire faire la commade audessus
 clean :
 	${RM} ${OBJS} ${OBJS_B}
 
