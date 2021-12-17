@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 10:05:02 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/17 11:31:32 by fboumell         ###   ########.fr       */
+/*   Updated: 2021/12/17 12:02:06 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,50 @@ height, width and a title. We then will have to call mlx_loop to initiate the
 window rendering. Let’s create a window with a width of 1920, a height of 1080 
 and a name of “Hello world!”: */
 
+/*
+#include <mlx.h>
+#include <stdio.h>
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+int	key_hook(int keycode, t_vars *vars)
+{
+	printf("Hello from key_hook!\n");
+    return (0);
+}
+
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
+	t_vars	vars;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 840, 460, "Hello world!");
-	mlx_loop(mlx);
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
+	mlx_key_hook(vars.win, key_hook, &vars);
+	mlx_loop(vars.mlx);
+}*/
+
+#include <mlx.h>
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+int	close(int keycode, t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+    return (0);
+}
+
+int	main(void)
+{
+	t_vars	vars;
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello world!");
+	mlx_hook(vars.win, 2, 1L<<0, close, &vars);
+	mlx_loop(vars.mlx);
 }
