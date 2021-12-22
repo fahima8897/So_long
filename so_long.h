@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/22 15:03:46 by fboumell         ###   ########.fr       */
+/*   Updated: 2021/12/22 16:14:00 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef struct s_vars
 }   t_vars;
 
 	/* win_utils.c */
-int	handle_win_close(int keypress, t_vars *win);
+int	close_escape(int keypress, t_vars *win);
+int	red_cross(t_vars *win);
 int	ft_init_window();
 
 
