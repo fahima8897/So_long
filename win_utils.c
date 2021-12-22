@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:20:35 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/22 18:21:17 by fboumell         ###   ########.fr       */
+/*   Updated: 2021/12/22 18:27:40 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,15 @@ int	red_cross(t_vars *win)
 	exit(0);
 }
 
-int    ft_init_window()
+void	ft_init_window(void)
 {
-	t_vars  win;
-	
+	t_vars	win;
+
 	win.mlx = mlx_init();
 	if (win.mlx == NULL)
-		return (0);
+		return ;
 	win.mlx_win = mlx_new_window(win.mlx, 640, 340, "so_long");
-	mlx_hook(win.mlx_win, 2, 1L<<0, close_escape, &win);
+	mlx_hook(win.mlx_win, 2, 1L << 0, close_escape, &win);
 	mlx_hook(win.mlx_win, 17, 0L, red_cross, &win);
 	mlx_loop(win.mlx);
-	return (0);
 }
