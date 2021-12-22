@@ -6,7 +6,7 @@
 #    By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 13:47:55 by fboumell          #+#    #+#              #
-#    Updated: 2021/12/17 11:07:41 by fboumell         ###   ########.fr        #
+#    Updated: 2021/12/21 14:39:25 by fboumell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ all	: ${NAME}
 #to your makefile, assuming that you have the mlx 
 #source in a directory named mlx in the root of your project:
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 #$(NAME) : $(OBJS) ${OBJS_B}
 #	${CC} ${CFLAGS} ${SRCS} -o ${NAME}
