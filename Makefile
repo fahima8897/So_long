@@ -6,7 +6,7 @@
 #    By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 13:47:55 by fboumell          #+#    #+#              #
-#    Updated: 2021/12/21 14:39:25 by fboumell         ###   ########.fr        #
+#    Updated: 2021/12/22 16:45:54 by fboumell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS	= -Wall -Werror -Werror
 
 RM	= rm -f
 
-#SRCS	=
+SRCS	= win_utils.c so_long.c \
 
 #SRCS_B = 
 
@@ -37,8 +37,8 @@ all	: ${NAME}
 #$(NAME) : $(OBJS) ${OBJS_B}
 #	${CC} ${CFLAGS} ${SRCS} -o ${NAME}
 
-#$(NAME): $(OBJS) $(OBJS_B)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME): $(OBJS) $(OBJS_B)
+	${CC} ${CFLAGS} -Lmlx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
 #pour linker l'API macos interne necessaire faire la commade audessus
 clean :
 	${RM} ${OBJS} ${OBJS_B}
