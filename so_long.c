@@ -6,12 +6,12 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 14:39:28 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/27 16:29:54 by fboumell         ###   ########.fr       */
+/*   Updated: 2021/12/27 17:27:08 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <string.h>
+
 int	check_arg(int ac, char *av)
 {
 	int i;
@@ -38,6 +38,7 @@ int	check_arg(int ac, char *av)
 int main(int ac, char **av)
 {
 	check_arg(ac, av[1]);
+	ft_read(&av[1]);
 	ft_init_window();
 	return (0);
 }

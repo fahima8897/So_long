@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/27 16:59:44 by fboumell         ###   ########.fr       */
+/*   Updated: 2021/12/27 17:26:39 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 # define SO_LONG
 
 # include "mlx.h"
+# include "gnl/get_next_line.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-
-
 
 /*
 typedef struct  s_data
@@ -36,6 +35,14 @@ typedef struct s_vars
 	void    *mlx_win;
 }   t_vars;
 
+typedef struct s_map
+{
+	char **map;
+	int	x_lentgh;
+	int	y_wigth;
+}	t_map;
+
+
 	/* so_long.c */
 int		check_arg(int ac, char *av);
 
@@ -44,5 +51,7 @@ int		close_escape(int keypress, t_vars *win);
 int		red_cross(t_vars *win);
 void	ft_init_window(void);
 
+	/* read_map.c */
+void	ft_read(t_map **map);
 
 #endif
