@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/27 17:26:39 by fboumell         ###   ########.fr       */
+/*   Updated: 2021/12/28 12:47:46 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,23 @@ typedef struct s_vars
 	void    *mlx_win;
 }   t_vars;
 
-typedef struct s_map
+/*typedef struct s_map
 {
 	char **map;
 	int	x_lentgh;
 	int	y_wigth;
-}	t_map;
+}	t_map;*/
 
 
 	/* so_long.c */
 int		check_arg(int ac, char *av);
 
 	/* win_utils.c */
-int		close_escape(int keypress, t_vars *win);
+/*int		close_escape(int keypress, t_vars *win);
 int		red_cross(t_vars *win);
-void	ft_init_window(void);
+void	ft_init_window(void);*/
 
 	/* read_map.c */
-void	ft_read(t_map **map);
+int	ft_read(char *s);
 
 #endif
