@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 14:39:28 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/28 12:48:03 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:32:38 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	check_arg(int ac, char *av)
 int main(int ac, char **av)
 {
 	check_arg(ac, av[1]);
-	ft_read(av[1]);
+	ft_create_map(av[1]);
 //	ft_init_window();
 	return (0);
 }
