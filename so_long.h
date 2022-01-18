@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/18 17:27:23 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/18 17:42:02 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	ft_init_window(void);*/
 
 	/* read_map.c */
 int		ft_count_line(char *s);
-char	**ft_create_map(char *s);
+void	ft_fill_map(int row, int column, int i);
+void	ft_create_map(char *s);
 
 	/* utils.c */
 void	*ft_calloc(size_t count, size_t size);

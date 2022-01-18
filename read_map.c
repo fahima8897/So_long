@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:21:33 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/18 17:30:08 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/18 17:41:32 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,12 @@ int	ft_count_line(char *s)
 	return (count_line);
 }
 
-char	**ft_create_map(char *s)
+void	ft_fill_map(int row, int column, int i)
 {
-	int line;
-	char **map;
 	
-	line = ft_count_line(s);
-	printf("dans create_map : %d\n", line); 
-	map = malloc(sizeof(char *) * (line + 1));
-	if (!map)
-		return (NULL);
-	return (map);
 }
 
-void	ft_read_map(char *s)
+void	ft_create_map(char *s)
 {
 	int	column;
 	int	row;
@@ -61,7 +53,7 @@ void	ft_read_map(char *s)
 	char **map;
 
 	column = 0;
-	rows = 0;
+	row = 0;
 	line = ft_count_line(s);
 	i = 0;
 	map = ft_calloc(count_line + 1, sizeof(char *));
@@ -70,8 +62,11 @@ void	ft_read_map(char *s)
 	fd = open("map.ber", O_RDONLY);
 	if (fd < 0)
 		printf("Error : open failed\n");
-	
-	
+	else
+	{
+		ft_fill_map(row, column, i);
+		close(fd);
+	}
 }
 
 /*
