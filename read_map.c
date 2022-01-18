@@ -6,12 +6,11 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:21:33 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/18 16:51:39 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/18 17:30:08 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 //lire ligne par ligne puis mettre dans un double tableau??
 //lire dans une boucle puis compter le nb de lignes en meme temps
@@ -55,24 +54,27 @@ char	**ft_create_map(char *s)
 void	ft_read_map(char *s)
 {
 	int	column;
+	int	row;
 	int	line;
+	int	i;
 	int	fd;
 	char **map;
 
+	column = 0;
+	rows = 0;
 	line = ft_count_line(s);
-	map = ft_create_map(s);
+	i = 0;
+	map = ft_calloc(count_line + 1, sizeof(char *));
+	if (!map)
+		return ;
 	fd = open("map.ber", O_RDONLY);
-	if (fd == -1)
-		write(1, "open map.ber failed\n", 20);
-	map = get_next_line(fd);
-	while(map != NULL)
-	{
-		map[]
-	}
+	if (fd < 0)
+		printf("Error : open failed\n");
+	
 	
 }
 
-
+/*
 void	create_map(char *path, t_data *data)
 {
 	int		row;
@@ -117,4 +119,4 @@ void	put_input_in_map(int row, int column, int i, t_data *data)
 		line = get_next_line(data->map.fd);
 	}
 	data->map.map[row] = NULL;
-}
+}*/
