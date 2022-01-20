@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:21:33 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/20 14:49:59 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/20 16:14:54 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_free(char **tab)
 	i = 0;
 	while (tab[i])
 	{
-		free(tab[i])
+		free(tab[i]);
 		i++;
 	}
 	free(tab);

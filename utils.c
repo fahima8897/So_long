@@ -6,11 +6,24 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:24:09 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/19 11:53:08 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/20 16:00:00 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*b;
+
+	b = s;
+	while (n)
+	{
+		*b = '\0';
+		b++;
+		n--;
+	}
+}
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -23,9 +36,9 @@ void	*ft_calloc(size_t count, size_t size)
 	return (s);
 }
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')

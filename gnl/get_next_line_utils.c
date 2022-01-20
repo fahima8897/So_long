@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fboumell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:25:45 by fboumell          #+#    #+#             */
-/*   Updated: 2021/07/19 12:19:19 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/20 16:01:49 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
+/*
 int	ft_strlen(const char *s)
 {
 	int	i;
@@ -20,7 +20,7 @@ int	ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
-}
+}*/
 
 char	*ft_strdup(const char *s)
 {

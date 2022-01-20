@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/20 13:36:01 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:59:25 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ void	ft_create_map(char *s, t_data *data);
 
 	/* utils.c */
 void	*ft_calloc(size_t count, size_t size);
-size_t	ft_strlen(const char *s);
+int		ft_strlen(const char *s);
 
 #endif
