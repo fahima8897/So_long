@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/18 17:42:02 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/19 15:00:13 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+typedef	struct	s_map
+{
+	int fd;
+	char	*path;
+	int	count_line;
+	char	**map;
+}	t_map;
+
+typedef	struct	s_data
+{
+	t_map	map;	
+}	t_data;
 
 /*
 typedef struct  s_data
@@ -54,10 +67,11 @@ void	ft_init_window(void);*/
 
 	/* read_map.c */
 int		ft_count_line(char *s);
-void	ft_fill_map(int row, int column, int i);
+void	ft_fill_map(int row, int column, int i, char **map);
 void	ft_create_map(char *s);
 
 	/* utils.c */
 void	*ft_calloc(size_t count, size_t size);
+size_t	ft_strlen(const char *s);
 
 #endif
