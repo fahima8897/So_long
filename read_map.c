@@ -6,15 +6,25 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:21:33 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/20 12:34:32 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:39:35 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//lire ligne par ligne puis mettre dans un double tableau??
-//lire dans une boucle puis compter le nb de lignes en meme temps
-//creer tableau avec nb de lignes et nb colonnes
+void	ft_free(char **tab)
+{
+	int i;
+
+	i = 0;
+	while(tab[i])
+	{
+		free(tab[i])
+		i++;
+	}
+	free(tab);
+	tab = NULL;
+}
 
 int	ft_count_line(char *s)
 {
@@ -47,7 +57,7 @@ void	ft_fill_map(int row, int column, int i, t_data *data)
 	{
 		data->map.map[row] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
 		if (!data->map.map[row])
-			return(free(data->map.map));
+			return(ft_free(data->map.map));
 		while (line[i] != '\0')
 			data->map.map[row][column++] = line[i++];
 		data->map.map[row++][column] = '\0';
