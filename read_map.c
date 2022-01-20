@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:21:33 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/20 12:43:07 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:49:59 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,22 @@ void	ft_free(char **tab)
 
 int	ft_count_line(char *s)
 {
-	int	fd;
-	int	count_line;
+	int		fd;
+	int		count_line;
+	char	*line;
 
 	count_line = 0;
-	fd = open("map.ber", O_RDONLY);
+	fd = open(s, O_RDONLY);
 	if (fd < 0)
 		printf("open map.ber failed\n");
 	else
 	{
-		s = get_next_line(fd);
-		while (s != NULL)
+		line = get_next_line(fd);
+		while (line != NULL)
 		{
 			count_line++;
-			s = get_next_line(fd);
+			free(line);
+			line = get_next_line(fd);
 		}
 		close(fd);
 	}
@@ -59,8 +61,13 @@ void	ft_fill_map(int row, int column, int i, t_data *data)
 		if (!data->map.map[row])
 			return (ft_free(data->map.map));
 		while (line[i] != '\0')
-			data->map.map[row][column++] = line[i++];
-		data->map.map[row++][column] = '\0';
+		{
+			data->map.map[row][column] = line[i];
+			column++;
+			i++;
+		}
+		data->map.map[row][column] = '\0';
+		row++;
 		column = 0;
 		i = 0;
 		free(line);
@@ -83,7 +90,7 @@ void	ft_create_map(char *s, t_data *data)
 	data->map.map = ft_calloc(data->map.count_line + 1, sizeof(char *));
 	if (!data->map.map)
 		return ;
-	data->map.fd = open("map.ber", O_RDONLY);
+	data->map.fd = open(s, O_RDONLY);
 	if (data->map.fd < 0)
 		printf("Error : open failed\n");
 	else

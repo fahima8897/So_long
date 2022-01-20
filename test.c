@@ -51,3 +51,36 @@ int main()
     mlx_loop(mlx_ptr);
     return (0);
 }*/
+
+void	fill_map(char **tab, int row, int column)
+{
+	char **map;
+	int i;
+	
+	i = 0;
+	while (tab[row] != NULL)
+	map[row] = calloc(4 + 1, sizeof(char));
+	if (!map)
+		return ;
+	while (tab[row][column] != '\0')
+		map[row][column++] = tab[row][i++];
+	map[row][column] = '\0';
+	row++;
+	column = 0;
+	i = 0;
+}
+
+int main()
+{
+	int row = 0;
+	int column = 0;
+	char **map;
+	char tab[5][4] = "1111, 1001, 1001, 1001, 1111";
+	map = fill_map(tab, row, column);
+	while (row > 6 && column > 5)
+	{
+		printf("%s\n", map[row][column]);
+		row++;
+		column++;
+	}
+}
