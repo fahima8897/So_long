@@ -56,8 +56,8 @@ static char	*ft_after_n(char *save)
 	char			*tmp;
 
 	tmp = ft_strchr(save, '\n');
-	if (save == '\0')
-		return (0);
+/*	if (save == '\0')
+		return (0);*/
 	i = ft_strlen(tmp);
 	cpy = malloc(sizeof(char) * (i + 1));
 	if (!cpy)

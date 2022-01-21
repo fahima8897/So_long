@@ -13,7 +13,7 @@
 #ifndef SO_LONG
 # define SO_LONG
 
-//# include "mlx.h"
+# include "mlx/mlx.h"
 # include "gnl/get_next_line.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -62,9 +62,9 @@ void	ft_check_arg(int ac, char *av);
 int		ft_check_extension(char *av);
 
 	/* win_utils.c */
-/*int		close_escape(int keypress, t_vars *win);
+int		close_escape(int keypress, t_vars *win);
 int		red_cross(t_vars *win);
-void	ft_init_window(void);*/
+void	ft_init_window(void);
 
 	/* read_map.c */
 void	ft_free(char **tab);

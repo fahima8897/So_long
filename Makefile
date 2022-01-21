@@ -14,32 +14,25 @@ NAME = so_long
 
 CC	= gcc
 
-CFLAGS	= -Wall -Werror -Werror
+CFLAGS	= -Wall -Werror -Werror -g
+
+FL_MLX = -ldl -lmlx -Lmlx -lm -lXext -lX11
 
 RM	= rm -f
 
-SRCS	= win_utils.c so_long.c \
-
-#SRCS_B = 
-
+SRCS	= win_utils.c so_long.c read_map.c utils.c gnl/get_next_line.c gnl/get_next_line_utils.c \
+		
 OBJS = ${SRCS:.c=.o}
-
-#OBJS_B = ${SRCS_B:.c=.o}
 
 all	: ${NAME}
 
-#For object files, you could add the following rule 
-#to your makefile, assuming that you have the mlx 
-#source in a directory named mlx in the root of your project:
 %.o: %.c
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx -Ibass -I includes -o $@ -c $<
 
-#$(NAME) : $(OBJS) ${OBJS_B}
-#	${CC} ${CFLAGS} ${SRCS} -o ${NAME}
+$(NAME): $(OBJS)
+	make -s -C ./mlx
+	${CC} ${CFLAGS} -I INCLUDES ${SRCS} -o ${NAME} $(FL_MLX)
 
-$(NAME): $(OBJS) $(OBJS_B)
-	${CC} ${CFLAGS} -Lmlx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
-#pour linker l'API macos interne necessaire faire la commade audessus
 clean :
 	${RM} ${OBJS} ${OBJS_B}
 
@@ -48,4 +41,4 @@ fclean : clean
 
 re : clean fclean
 
-.PHONY	: clean fclean all re #bonus
+.PHONY	: clean fclean all re 
