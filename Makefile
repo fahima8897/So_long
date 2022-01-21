@@ -27,7 +27,7 @@ OBJS = ${SRCS:.c=.o}
 all	: ${NAME}
 
 %.o: %.c
-	$(CC) $(CFLAGS) -Imlx -Ibass -I includes -o $@ -c $<
+	$(CC) $(CFLAGS) -Imlx -Ibass -I INCLUDES -o $@ -c $<
 
 $(NAME): $(OBJS)
 	make -s -C ./mlx

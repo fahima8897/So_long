@@ -70,7 +70,7 @@ int	main(int ac, char **av)
 //	t_data	data;
 
 	ft_check_arg(ac, av[1]);
-//	ft_create_map(av[1], &data);
+	ft_create_map(av[1], &data);
 	ft_init_window();
 	return (0);
 }
