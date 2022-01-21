@@ -6,40 +6,70 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 14:39:28 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/20 17:47:14 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/21 13:05:51 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_arg(int ac, char *av) //voir clg
+int	ft_check_extension(char *av)
 {
-	int i;
-	int	len;
+	char	*extension;
+	int		value;
+	int		i;
+	int		j;
 
+	extension = "ber";
+	value = 0;
 	i = 0;
-	len = ft_strlen(av);
-	if (ac != 2)  //attention segfault quand ac == 1!!!
+	j = 0;
+	while (av[i] != '\0')
 	{
-		if (ac < 2)
-			printf("Error\nMissing one argument\n");
-		if (ac > 2)
-			printf("Error\nToo many arguments\n");
-		exit(0);
+		if (av[i] != '.')
+			i++;
+		else
+		{
+			i++;
+			while (av[i + j] && extension[j] && av[i + j] == extension[j])
+				j++;
+			if (j == 3 && av[i + 3] == '\0')
+				value = 1;
+		}
 	}
-	if (av[len - 3] != 'b' && av[len - 2] != 'e' && av[len - 1] != 'r' && av[len - 4] != '.')
-	{
-		printf("Wrong extension, argument must be a .ber file\n");
-		exit(0);
-	}
-	return (1);
+	return (value);
 }
 
-int main(int ac, char **av)
+void	ft_check_arg(int ac, char *av)
+{
+	int	extension;
+	int	fd;
+
+	extension = 0;
+	if (ac != 2)
+	{
+		printf("Error\nWrong number of arguments\n");
+		exit(0);
+	}
+	extension = ft_check_extension(av);
+	if (extension == 0)
+	{
+		printf("Error\nWrong extension\n");
+		exit(0);
+	}
+	fd = open(av, O_DIRECTORY);
+	if (fd > 0)
+	{
+		close(fd);
+		printf("Error\nThis is not a file\n");
+		exit(0);
+	}
+}
+
+int	main(int ac, char **av)
 {
 	t_data	data;
-	
-	check_arg(ac, av[1]);
+
+	ft_check_arg(ac, av[1]);
 	ft_create_map(av[1], &data);
 //	ft_init_window();
 	return (0);

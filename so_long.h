@@ -6,14 +6,14 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/20 15:59:25 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/21 13:03:41 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG
 # define SO_LONG
 
-# include "mlx.h"
+//# include "mlx.h"
 # include "gnl/get_next_line.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -58,7 +58,8 @@ typedef struct s_vars
 
 
 	/* so_long.c */
-int		check_arg(int ac, char *av);
+void	ft_check_arg(int ac, char *av);
+int		ft_check_extension(char *av);
 
 	/* win_utils.c */
 /*int		close_escape(int keypress, t_vars *win);
