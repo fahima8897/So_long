@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:21:33 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/20 16:14:54 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/21 16:55:12 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_count_line(char *s)
 	count_line = 0;
 	fd = open(s, O_RDONLY);
 	if (fd < 0)
-		printf("open map.ber failed\n");
+		printf("Error\nOpen map.ber failed\n");
 	else
 	{
 		line = get_next_line(fd);
@@ -92,7 +92,7 @@ void	ft_create_map(char *s, t_data *data)
 		return ;
 	data->map.fd = open(s, O_RDONLY);
 	if (data->map.fd < 0)
-		printf("Error : open failed\n");
+		printf("Error\nOpen failed\n");
 	else
 	{
 		ft_fill_map(row, column, i, data);
