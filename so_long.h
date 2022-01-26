@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 14:11:02 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:55:11 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,21 @@ void	ft_fill_map(int row, int column, int i, t_data *data);
 void	ft_create_map(char *s, t_data *data);
 
 	/* utils.c */
+void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_strlen(const char *s);
 
-	/* check_map.c */
-int		ft_check_characters(t_data *data);
+	/* check_map_struct.c */
+int		ft_check_sizeofmap(t_data *data)
 int		ft_check_walls(int line, char **map);
 int		ft_check_walls_sides(int line_count, char **map);
-void    ft_check_map(t_data *data);
+void    ft_check_map_struct(t_data *data);
+
+	/*check_map_compo.c */
+int		ft_check_component(t_data *data);
+int		ft_check_other_compo(t_data *data);
+void	ft_check_error_compo(t_data *data);
+void    ft_check_map_compo(t_data *data);
 
 	/* initialize.c */
 void	ft_initialize_map(t_data *data);
