@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 17:38:14 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/26 19:05:13 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,11 @@ typedef	struct	s_data
 	int	i;
 	int	j;
 	t_map	map;	
+	void	*mlx;
+	void	*mlx_win;
+	int		win_height;
+	int		win_width
 }	t_data;
-
-/*
-typedef struct  s_data
-{
-	void    *mlx_img;
-	char    *addr;
-	int bits_per_pixel;
-	int line_len;
-	int endian;
-}   t_data;
-*/
-typedef struct s_vars
-{
-	void    *mlx;
-	void    *mlx_win;
-}   t_vars;
-
-/*typedef struct s_map
-{
-	char **map;
-	int	x_lentgh;
-	int	y_wigth;
-}	t_map;*/
-
 
 	/* so_long.c */
 void	ft_check_arg(int ac, char *av);
@@ -70,7 +50,7 @@ int		ft_check_extension(char *av);
 	/* win_utils.c */
 int		close_escape(int keypress, t_vars *win);
 int		red_cross(t_vars *win);
-void	ft_init_window(void);
+void	ft_init_window(t_data *data);
 
 	/* read_map.c */
 void	ft_free(char **tab);

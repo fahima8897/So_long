@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:43:49 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 17:44:38 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/26 19:06:56 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_check_component(t_data *data)
 		data->j = 0;
 		data->i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	ft_check_other_compo(t_data *data)
@@ -47,7 +47,7 @@ int	ft_check_other_compo(t_data *data)
 			data->map.map[i][j] != 'C' && data->map.map[i][j] != 'E' &&
 			data->map.map[i][j] != 'P')
 			{
-				printf("Error\n At leat one of the component is not valide\n");
+				printf("Error\n At least one of the component is not valide\n");
 				ft_free(data->map.map);
 				exit(0);
 			}
@@ -56,7 +56,7 @@ int	ft_check_other_compo(t_data *data)
 		j = 0;
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void	ft_check_error_compo(t_data *data)
