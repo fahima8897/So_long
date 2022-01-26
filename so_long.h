@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 13:17:23 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/26 14:11:02 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef	struct	s_map
 {
 	int		fd;
 	char	*path;
+	int		len_line;
 	int		count_line;
 	int		count_E;
 	int		count_C;
@@ -83,8 +84,9 @@ int		ft_strlen(const char *s);
 
 	/* check_map.c */
 int		ft_check_characters(t_data *data);
-int		ft_check_walls(int row, char **map);
+int		ft_check_walls(int line, char **map);
 int		ft_check_walls_sides(int line_count, char **map);
+void    ft_check_map(t_data *data);
 
 	/* initialize.c */
 void	ft_initialize_map(t_data *data);
