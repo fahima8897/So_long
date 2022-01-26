@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 16:55:11 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:57:59 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	*ft_calloc(size_t count, size_t size);
 int		ft_strlen(const char *s);
 
 	/* check_map_struct.c */
-int		ft_check_sizeofmap(t_data *data)
+int		ft_check_sizeofmap(t_data *data);
 int		ft_check_walls(int line, char **map);
 int		ft_check_walls_sides(int line_count, char **map);
 void    ft_check_map_struct(t_data *data);

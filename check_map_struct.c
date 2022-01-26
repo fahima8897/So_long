@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:16:54 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 16:22:29 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:20:40 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_check_sizeofmap(t_data *data)
 		if (j != data->map.len_line)
 		{
 			printf("Error\nThe map is not a rectangle\n");
+			ft_free(data->map.map);
 			exit(0);
 		}
 		j = 0;
@@ -57,6 +58,7 @@ int	ft_check_walls_sides(int count_line, char **map)
 	if (ft_check_walls(0, map) == 0 || ft_check_walls(count_line, map) == 0)
 	{
 		printf("Error\nThere is a hole in the wall\n");
+		ft_free(data->map.map);
 		exit(0);
 	}
 	while (i < count_line)
@@ -64,6 +66,7 @@ int	ft_check_walls_sides(int count_line, char **map)
 		if (map[i][0] != '1' || map[i][ft_strlen(map[0]) - 2] != '1')
 		{
 			printf("Error\nThere is a hole in the wall\n");
+			ft_free(data->map.map);
 			exit(0);
 		}
 		i++;
