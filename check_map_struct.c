@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:16:54 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 17:20:40 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:41:15 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_check_walls_sides(int count_line, char **map)
 	if (ft_check_walls(0, map) == 0 || ft_check_walls(count_line, map) == 0)
 	{
 		printf("Error\nThere is a hole in the wall\n");
-		ft_free(data->map.map);
+		ft_free(map);
 		exit(0);
 	}
 	while (i < count_line)
@@ -66,7 +66,7 @@ int	ft_check_walls_sides(int count_line, char **map)
 		if (map[i][0] != '1' || map[i][ft_strlen(map[0]) - 2] != '1')
 		{
 			printf("Error\nThere is a hole in the wall\n");
-			ft_free(data->map.map);
+			ft_free(map);
 			exit(0);
 		}
 		i++;
@@ -74,7 +74,7 @@ int	ft_check_walls_sides(int count_line, char **map)
 	return (1);
 }
 
-void    ft_check_map_struct(t_data *data)
+void	ft_check_map_struct(t_data *data)
 {
 	ft_check_sizeofmap(data);
 	ft_check_walls_sides(data->map.count_line - 1, data->map.map);

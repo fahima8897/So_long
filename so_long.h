@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 16:57:59 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:38:14 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ typedef	struct	s_map
 	char	*path;
 	int		len_line;
 	int		count_line;
-	int		count_E;
-	int		count_C;
-	int		count_P;
+	int		count_e;
+	int		count_c;
+	int		count_p;
 	char	**map;
 }	t_map;
 

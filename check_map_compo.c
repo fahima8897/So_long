@@ -5,36 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 16:16:17 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 17:21:09 by fboumell         ###   ########.fr       */
+/*   Created: 2022/01/26 17:43:49 by fboumell          #+#    #+#             */
+/*   Updated: 2022/01/26 17:44:38 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int ft_check_component(t_data *data)
+int	ft_check_component(t_data *data)
 {
 	while (data->map.map[data->i])
 	{
 		while (data->map.map[data->i][data->j])
 		{
 			if (data->map.map[data->i][data->j] == 'E')
-				data->map.count_E++;
+				data->map.count_e++;
 			else if (data->map.map[data->i][data->j] == 'C')
-				data->map.count_C++;
+				data->map.count_c++;
 			else if (data->map.map[data->i][data->j] == 'P')
-				data->map.count_P++;
+				data->map.count_p++;
 			data->j++;
 		}
 		data->j = 0;
 		data->i++;
 	}
-    return(1);
+	return (1);
 }
 
-int ft_check_other_compo(t_data *data)
+int	ft_check_other_compo(t_data *data)
 {
-    int		i;
+	int		i;
 	int		j;
 
 	i = 0;
@@ -48,7 +48,7 @@ int ft_check_other_compo(t_data *data)
 			data->map.map[i][j] != 'P')
 			{
 				printf("Error\n At leat one of the component is not valide\n");
-                ft_free(data->map.map);
+				ft_free(data->map.map);
 				exit(0);
 			}
 			j++;
@@ -56,41 +56,40 @@ int ft_check_other_compo(t_data *data)
 		j = 0;
 		i++;
 	}
-    return (1);
+	return (1);
 }
 
-void ft_check_error_compo(t_data *data)
+void	ft_check_error_compo(t_data *data)
 {
-    if (data->map.count_E == 0)
+	if (data->map.count_e == 0)
 	{
 		printf("Error\nThere is no exit\n");
-        ft_free(data->map.map);
+		ft_free(data->map.map);
 		exit(0);
 	}
-    if (data->map.count_C == 0)
+	if (data->map.count_c == 0)
 	{
 		printf("Error\nThere is no collecible\n");
-        ft_free(data->map.map);
+		ft_free(data->map.map);
 		exit(0);
 	}
-    if (data->map.count_P == 0)
+	if (data->map.count_p == 0)
 	{
 		printf("Error\nThere is no starting position\n");
-        ft_free(data->map.map);
+		ft_free(data->map.map);
 		exit(0);
 	}
-    if (data->map.count_P > 1)
+	if (data->map.count_p > 1)
 	{
 		printf("Error\nThere is more than one starting position\n");
-        ft_free(data->map.map);
+		ft_free(data->map.map);
 		exit(0);
 	}
 }
 
-void    ft_check_map_compo(t_data *data)
+void	ft_check_map_compo(t_data *data)
 {
-    ft_check_component(data);
-    ft_check_other_compo(data);
-    ft_check_error_compo(data);
+	ft_check_component(data);
+	ft_check_other_compo(data);
+	ft_check_error_compo(data);
 }
-	
