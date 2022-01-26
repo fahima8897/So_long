@@ -6,7 +6,7 @@
 #    By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 13:47:55 by fboumell          #+#    #+#              #
-#    Updated: 2021/12/22 16:45:54 by fboumell         ###   ########.fr        #
+#    Updated: 2022/01/26 12:34:11 by fboumell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ FL_MLX = -ldl -lmlx -Lmlx -lm -lXext -lX11
 RM	= rm -f
 
 SRCS	= win_utils.c so_long.c read_map.c utils.c gnl/get_next_line.c gnl/get_next_line_utils.c \
+		check_map.c initialize.c \
 		
 OBJS = ${SRCS:.c=.o}
 
