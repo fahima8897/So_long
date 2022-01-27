@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/27 12:48:57 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:14:26 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ typedef	struct	s_map
 	char	**map;
 }	t_map;
 
+typedef struct s_image
+{
+	void	*floor;
+	int		width;
+	int		height;
+}	t_image;
+
 typedef	struct	s_data
 {
 	int	i;
@@ -47,6 +54,7 @@ typedef	struct	s_data
 	int		position_i;
 	int		position_j;
 	t_map	map;
+	t_image	image;
 }	t_data;
 
 	/* so_long.c */
@@ -84,6 +92,9 @@ void    ft_check_map_compo(t_data *data);
 	/* initialize.c */
 void	ft_initialize_map(t_data *data);
 void	ft_player_position(t_data *data);
+
+	/* image.c */
+void	init_images(t_data *data);
 
 
 #endif
