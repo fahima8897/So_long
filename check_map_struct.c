@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:16:54 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/27 11:20:50 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:54:13 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ int	ft_check_walls_sides(int count_line, char **map)
 void	ft_check_map_struct(t_data *data)
 {
 	ft_check_sizeofmap(data);
-//	printf("avant walls?");
 	ft_check_walls_sides(data->map.count_line - 1, data->map.map);
-//	printf("apres walls?");
 	ft_check_map_compo(data);
 }
