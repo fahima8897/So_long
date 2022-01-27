@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:16:54 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 19:06:40 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/27 11:20:50 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_check_sizeofmap(t_data *data)
 		j = 0;
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_check_walls(int line, char **map)
@@ -47,7 +47,7 @@ int	ft_check_walls(int line, char **map)
 			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_check_walls_sides(int count_line, char **map)
@@ -71,12 +71,14 @@ int	ft_check_walls_sides(int count_line, char **map)
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 void	ft_check_map_struct(t_data *data)
 {
 	ft_check_sizeofmap(data);
+//	printf("avant walls?");
 	ft_check_walls_sides(data->map.count_line - 1, data->map.map);
+//	printf("apres walls?");
 	ft_check_map_compo(data);
 }

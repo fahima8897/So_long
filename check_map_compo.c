@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:43:49 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 19:06:56 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/27 11:18:22 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_check_component(t_data *data)
 		data->j = 0;
 		data->i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_check_other_compo(t_data *data)
@@ -56,7 +56,7 @@ int	ft_check_other_compo(t_data *data)
 		j = 0;
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 void	ft_check_error_compo(t_data *data)

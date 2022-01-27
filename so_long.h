@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/26 19:05:13 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/27 12:48:57 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 typedef	struct	s_map
 {
@@ -36,11 +40,13 @@ typedef	struct	s_data
 {
 	int	i;
 	int	j;
-	t_map	map;	
 	void	*mlx;
 	void	*mlx_win;
 	int		win_height;
-	int		win_width
+	int		win_width;
+	int		position_i;
+	int		position_j;
+	t_map	map;
 }	t_data;
 
 	/* so_long.c */
@@ -48,9 +54,9 @@ void	ft_check_arg(int ac, char *av);
 int		ft_check_extension(char *av);
 
 	/* win_utils.c */
-int		close_escape(int keypress, t_vars *win);
-int		red_cross(t_vars *win);
-void	ft_init_window(t_data *data);
+int		close_escape(int keypress, t_data*win);
+int		red_cross(t_data *win);
+int		ft_init_window(t_data *data);
 
 	/* read_map.c */
 void	ft_free(char **tab);
@@ -77,6 +83,7 @@ void    ft_check_map_compo(t_data *data);
 
 	/* initialize.c */
 void	ft_initialize_map(t_data *data);
+void	ft_player_position(t_data *data);
 
 
 #endif
