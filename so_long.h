@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/27 16:14:26 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/27 17:06:27 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <sys/stat.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+
+#define	FLOOR "xpm/grass.xpm"
 
 typedef	struct	s_map
 {
@@ -62,9 +64,10 @@ void	ft_check_arg(int ac, char *av);
 int		ft_check_extension(char *av);
 
 	/* win_utils.c */
-int		close_escape(int keypress, t_data*win);
-int		red_cross(t_data *win);
+int		ft_close_escape(int keypress, t_data*win);
+int		ft_red_cross(t_data *win);
 int		ft_init_window(t_data *data);
+void	ft_loop(t_data data);
 
 	/* read_map.c */
 void	ft_free(char **tab);
@@ -92,9 +95,11 @@ void    ft_check_map_compo(t_data *data);
 	/* initialize.c */
 void	ft_initialize_map(t_data *data);
 void	ft_player_position(t_data *data);
+void	ft_initialize_images(t_data *data);
 
 	/* image.c */
-void	init_images(t_data *data);
+void	ft_put_images(t_data *data, int width, int i, int j);
+int	ft_image(t_data *data);
 
 
 #endif

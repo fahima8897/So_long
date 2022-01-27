@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 14:39:28 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/27 12:53:53 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:47:59 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,8 @@ int	main(int ac, char **av)
 	ft_check_map_struct(&data);
 	ft_player_position(&data);
 	ft_init_window(&data);
+	ft_initialize_images(&data);
+	ft_image(&data);
+	ft_loop(data);
 	return (0);
 }
