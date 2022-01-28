@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/27 17:06:27 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/28 13:47:56 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
 # include <X11/keysym.h>
 
 #define	FLOOR "xpm/grass.xpm"
+#define	WALL "xpm/brick.xpm"
+#define	PLAYER "xpm/player.xpm"
+#define	COLLEC "xpm/collectible.xpm"
+#define	EXIT "xpm/house.xpm"
+
 
 typedef	struct	s_map
 {
@@ -41,6 +46,10 @@ typedef	struct	s_map
 typedef struct s_image
 {
 	void	*floor;
+	void	*wall;
+	void	*player;
+	void	*mouse;
+	void	*exit;
 	int		width;
 	int		height;
 }	t_image;
@@ -67,7 +76,7 @@ int		ft_check_extension(char *av);
 int		ft_close_escape(int keypress, t_data*win);
 int		ft_red_cross(t_data *win);
 int		ft_init_window(t_data *data);
-void	ft_loop(t_data data);
+//void	ft_loop(t_data data);
 
 	/* read_map.c */
 void	ft_free(char **tab);
