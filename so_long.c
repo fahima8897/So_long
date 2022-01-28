@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 14:39:28 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/28 13:47:21 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/28 15:53:55 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	main(int ac, char **av)
 	ft_init_window(&data);
 	ft_initialize_images(&data);
 	ft_image(&data);
-//	ft_loop(data);
+	ft_loop(data);
+	ft_destroy_images(data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:04:13 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/28 13:45:16 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/28 18:54:40 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ void	ft_put_images(t_data *data, int width, int i, int j)
 {
 	if (data->map.map[i][j] == '1')
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->image.wall,
-			width, i * 64);
+			width, i * 48);
 	else if (data->map.map[i][j] == '0')
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->image.floor,
-			width, i * 64);
+			width, i * 48);
 	else if (data->map.map[i][j] == 'P')
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->image.player,
-			width, i * 64);
+			width, i * 48);
 	else if (data->map.map[i][j] == 'E')
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->image.exit,
-			width, i * 64);
+			width, i * 48);
 	else if (data->map.map[i][j] == 'C')
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->image.mouse,
-			width, i * 64);
+			width, i * 48);
 }
 
 int	ft_image(t_data *data)
 {
 	int		i;
-	int     j;
+	size_t	j;
 	int		width;
 
 	if (data->mlx_win == NULL)
@@ -47,7 +47,7 @@ int	ft_image(t_data *data)
 		while (data->map.map[i][j] && data->map.map[i][j] != '\n')
 		{
 			ft_put_images(data, width, i, j);
-			width += 64;
+			width += 48;
 			j++;
 		}
 		j = 0;
