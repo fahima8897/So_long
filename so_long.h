@@ -6,12 +6,12 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/31 11:55:10 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 12:43:47 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG
-# define SO_LONG
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include "mlx/mlx.h"
 # include "gnl/get_next_line.h"
@@ -30,7 +30,7 @@
 # define COLLEC "xpm/collectible.xpm"
 # define EXIT "xpm/exit.xpm"
 
-typedef	struct	s_map
+typedef struct s_map
 {
 	int		fd;
 	char	*path;
@@ -55,10 +55,10 @@ typedef struct s_image
 	int		height;
 }	t_image;
 
-typedef	struct	s_data
+typedef struct s_data
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	void	*mlx;
 	void	*mlx_win;
 	int		win_height;
@@ -70,10 +70,10 @@ typedef	struct	s_data
 	t_image	image;
 }	t_data;
 
-
 	/* so_long.c */
 void	ft_check_arg(int ac, char *av);
 int		ft_check_extension(char *av);
+int		main(int ac, char **av);
 
 	/* win_utils.c */
 int		ft_close_escape(int keypress, t_data*win);
@@ -97,13 +97,13 @@ int		ft_strlen(const char *s);
 int		ft_check_sizeofmap(t_data *data);
 int		ft_check_walls(int line, char **map);
 int		ft_check_walls_sides(int line_count, char **map);
-void    ft_check_map_struct(t_data *data);
+void	ft_check_map_struct(t_data *data);
 
-	/*check_map_compo.c */
+	/* check_map_compo.c */
 int		ft_check_component(t_data *data);
 int		ft_check_other_compo(t_data *data);
 void	ft_check_error_compo(t_data *data);
-void    ft_check_map_compo(t_data *data);
+void	ft_check_map_compo(t_data *data);
 
 	/* initialize.c */
 void	ft_initialize_map(t_data *data);

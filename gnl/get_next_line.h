@@ -6,15 +6,15 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:26:46 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/28 12:12:59 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 12:23:35 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# ifndef			BUFFER_SIZE
-#  define		BUFFER_SIZE	42
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE	42
 # endif
 
 # include <stdlib.h>

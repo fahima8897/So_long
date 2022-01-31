@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:06:20 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/31 11:55:31 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 12:33:11 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int	ft_check_next_compo(t_data *data, char keycode, char component)
 {
-	if ((keycode== 'd' && data->map.map[data->position_i][data->position_j + 1] == component)
-		|| (keycode == 'a' && data->map.map[data->position_i][data->position_j - 1] == component)
-		|| (keycode == 's' && data->map.map[data->position_i + 1][data->position_j] == component)
-		|| (keycode == 'w' && data->map.map[data->position_i - 1][data->position_j] == component)
-		)
+	if ((keycode == 'd'
+			&& data->map.map[data->position_i][data->position_j + 1]
+		== component) || (keycode == 'a'
+		&& data->map.map[data->position_i][data->position_j - 1]
+		== component) || (keycode == 's'
+		&& data->map.map[data->position_i + 1][data->position_j]
+		== component) || (keycode == 'w'
+		&& data->map.map[data->position_i - 1][data->position_j] == component))
 		return (0);
 	else
 		return (1);
@@ -26,10 +29,14 @@ int	ft_check_next_compo(t_data *data, char keycode, char component)
 
 void	ft_collectible(t_data *data, char keycode)
 {
-	if ((keycode == 'd' && data->map.map[data->position_i][data->position_j + 1] == 'C')
-		|| (keycode == 'a' && data->map.map[data->position_i][data->position_j - 1] == 'C')
-		|| (keycode == 's' && data->map.map[data->position_i + 1][data->position_j] == 'C')
-		|| (keycode == 'w' && data->map.map[data->position_i - 1][data->position_j] == 'C'))
+	if ((keycode == 'd'
+			&& data->map.map[data->position_i][data->position_j + 1] == 'C')
+		|| (keycode == 'a'
+		&& data->map.map[data->position_i][data->position_j - 1] == 'C')
+		|| (keycode == 's'
+		&& data->map.map[data->position_i + 1][data->position_j] == 'C')
+		|| (keycode == 'w'
+		&& data->map.map[data->position_i - 1][data->position_j] == 'C'))
 		data->map.count_collectible++;
 }
 
@@ -60,12 +67,13 @@ void	ft_moves(t_data *data, char keycode)
 		data->position_j++;
 	else if (keycode == 'a')
 		data->position_j--;
-	else if (keycode== 's')
+	else if (keycode == 's')
 		data->position_i++;
 	else if (keycode == 'w')
 		data->position_i--;
 	printf("Number of moves: %d\n", data->count_moves);
-	if (data->map.exit == 1 && data->map.map[data->position_i][data->position_j] == 'E')
+	if (data->map.exit == 1
+		&& data->map.map[data->position_i][data->position_j] == 'E')
 		ft_you_win(data);
 	data->map.map[data->position_i][data->position_j] = 'P';
 }

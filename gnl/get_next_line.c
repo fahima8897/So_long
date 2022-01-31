@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:23:36 by fboumell          #+#    #+#             */
-/*   Updated: 2021/12/28 12:13:07 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 12:23:05 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ static char	*ft_after_n(char *save)
 	char			*tmp;
 
 	tmp = ft_strchr(save, '\n');
-/*	if (save == '\0')
-		return (0);*/
 	i = ft_strlen(tmp);
 	cpy = malloc(sizeof(char) * (i + 1));
 	if (!cpy)
