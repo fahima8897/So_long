@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/31 13:36:47 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 15:59:00 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int		ft_close_escape(int keypress, t_data*win);
 int		ft_red_cross(t_data *win);
 int		ft_init_window(t_data *data);
 void	ft_loop(t_data data);
-void	ft_destroy_images(t_data data);
+void	ft_destroy_images(t_data *data);
 
 	/* read_map.c */
 void	ft_free(char **tab);
