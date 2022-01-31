@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:20:35 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/31 12:34:37 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 13:32:39 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ int	ft_init_window(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)
+	{
+		free(data->mlx);
 		return (-1);
+	}
 	data->mlx_win = mlx_new_window(data->mlx, data->win_width,
 			data->win_height, "so_long");
 	if (data->mlx_win == NULL)

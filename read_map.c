@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:21:33 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/21 16:55:12 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 13:15:38 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_free(char **tab)
 	}
 	free(tab);
 	tab = NULL;
+	return ;
 }
 
 int	ft_count_line(char *s)
@@ -58,7 +59,7 @@ void	ft_fill_map(int row, int column, int i, t_data *data)
 	while (line != NULL)
 	{
 		data->map.map[row] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
-		if (!data->map.map[row])
+		if (!(data->map.map[row]))
 			return (ft_free(data->map.map));
 		while (line[i] != '\0')
 		{
@@ -88,7 +89,7 @@ void	ft_create_map(char *s, t_data *data)
 	data->map.count_line = ft_count_line(s);
 	data->map.path = s;
 	data->map.map = ft_calloc(data->map.count_line + 1, sizeof(char *));
-	if (!data->map.map)
+	if (!(data->map.map))
 		return ;
 	data->map.fd = open(s, O_RDONLY);
 	if (data->map.fd < 0)

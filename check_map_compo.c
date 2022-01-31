@@ -6,11 +6,39 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:43:49 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/27 11:18:22 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 13:30:49 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_check_error_compo(t_data *data)
+{
+	if (data->map.count_e == 0)
+	{
+		printf("Error\nThere is no exit\n");
+		ft_free(data->map.map);
+		exit(0);
+	}
+	if (data->map.count_c == 0)
+	{
+		printf("Error\nThere is no collecible\n");
+		ft_free(data->map.map);
+		exit(0);
+	}
+	if (data->map.count_p == 0)
+	{
+		printf("Error\nThere is no starting position\n");
+		ft_free(data->map.map);
+		exit(0);
+	}
+	if (data->map.count_p > 1)
+	{
+		printf("Error\nThere is more than one starting position\n");
+		ft_free(data->map.map);
+		exit(0);
+	}
+}
 
 int	ft_check_component(t_data *data)
 {
@@ -29,6 +57,9 @@ int	ft_check_component(t_data *data)
 		data->j = 0;
 		data->i++;
 	}
+	if (!data->map.count_c || !data->map.count_e || !data->map.count_p
+		|| data->map.count_p > 1)
+		ft_check_error_compo(data);
 	return (1);
 }
 
@@ -59,37 +90,8 @@ int	ft_check_other_compo(t_data *data)
 	return (1);
 }
 
-void	ft_check_error_compo(t_data *data)
-{
-	if (data->map.count_e == 0)
-	{
-		printf("Error\nThere is no exit\n");
-		ft_free(data->map.map);
-		exit(0);
-	}
-	if (data->map.count_c == 0)
-	{
-		printf("Error\nThere is no collecible\n");
-		ft_free(data->map.map);
-		exit(0);
-	}
-	if (data->map.count_p == 0)
-	{
-		printf("Error\nThere is no starting position\n");
-		ft_free(data->map.map);
-		exit(0);
-	}
-	if (data->map.count_p > 1)
-	{
-		printf("Error\nThere is more than one starting position\n");
-		ft_free(data->map.map);
-		exit(0);
-	}
-}
-
 void	ft_check_map_compo(t_data *data)
 {
 	ft_check_component(data);
 	ft_check_other_compo(data);
-	ft_check_error_compo(data);
 }

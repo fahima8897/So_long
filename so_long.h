@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/31 12:43:47 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 13:36:47 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 # include <sys/stat.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+
+#ifndef O_DIRECTORY
+# define O_DIRECTORY 00200000
+#endif
 
 # define FLOOR "xpm/grass.xpm"
 # define WALL "xpm/wall.xpm"
