@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:20:35 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/31 16:40:40 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:04:56 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,21 @@ void	ft_destroy_images(t_data *data)
 	mlx_destroy_image(data->mlx, data->image.player);
 	mlx_destroy_image(data->mlx, data->image.exit);
 	mlx_destroy_image(data->mlx, data->image.mouse);
-	mlx_destroy_display(data->mlx);
 }
 
 int	ft_close_escape(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
 	{
-		mlx_destroy_window(data->mlx, data->mlx_win);
 		ft_destroy_images(data);
+		if (data->mlx_win)
+		{
+			mlx_destroy_window(data->mlx, data->mlx_win);
+			mlx_destroy_display(data->mlx);
+			data->mlx_win = NULL;
+		}
+		free(data->mlx);
 		ft_free(data->map.map);
-		data->mlx_win = NULL;
 		exit(0);
 	}
 	else if (keycode == 'a' || keycode == 'd'
@@ -40,10 +44,15 @@ int	ft_close_escape(int keycode, t_data *data)
 
 int	ft_red_cross(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->mlx_win);
 	ft_destroy_images(data);
+	if (data->mlx_win)
+	{
+		mlx_destroy_window(data->mlx, data->mlx_win);
+		mlx_destroy_display(data->mlx);
+		data->mlx_win = NULL;
+	}
+	free(data->mlx);
 	ft_free(data->map.map);
-	data->mlx_win = NULL;
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 14:39:28 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/31 15:59:11 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:04:30 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	main(int ac, char **av)
 	ft_image(&data);
 	ft_loop(data);
 	ft_destroy_images(&data);
+	mlx_destroy_display(data.mlx);
 	free(data.mlx);
 	if (data.map.map)
 		ft_free(data.map.map);

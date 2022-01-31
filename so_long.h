@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/31 15:59:00 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:44:39 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void	ft_check_map_compo(t_data *data);
 	/* initialize.c */
 void	ft_initialize_map(t_data *data);
 void	ft_player_position(t_data *data);
+void	ft_free_images(t_data *data);
 void	ft_initialize_images(t_data *data);
 
 	/* image.c */
