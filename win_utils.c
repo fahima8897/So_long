@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:20:35 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/28 19:44:04 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 11:49:45 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_close_escape(int keycode, t_data *data)
 		data->mlx_win = NULL;
 		exit(0);
 	}
+	else if (keycode == 'a' || keycode == 'd' || keycode == 's' || keycode == 'w')
+		ft_moves(data, keycode);
 	return (0);
 }
 

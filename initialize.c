@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:23:45 by fboumell          #+#    #+#             */
-/*   Updated: 2022/01/28 16:17:36 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/01/31 11:38:05 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	ft_initialize_map(t_data *data)
 	data->map.count_p = 0;
 	data->map.count_e = 0;
 	data->map.count_c = 0;
+	data->count_moves = 0;
+	data->map.count_collectible = 0;
+	data->map.exit = 0;
 	data->win_height = data->map.count_line * 48;
 	data->win_width = (ft_strlen(data->map.map[0]) - 1) * 48;
 	data->image.width = 48;
