@@ -6,7 +6,7 @@
 #    By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 13:47:55 by fboumell          #+#    #+#              #
-#    Updated: 2022/02/01 18:02:03 by fboumell         ###   ########.fr        #
+#    Updated: 2022/02/01 18:06:20 by fboumell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ ${NAME_BONUS} : ${OBJS_BONUS}
 	${CC} ${CFLAGS} -I mlx/libmlx_Linux.a ${BONUS} -o ${NAME_BONUS} $(FL_MLX)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -Imlx -Ibass -I INCLUDES -o $@ -c $<
+	$(CC) $(CFLAGS) -Imlx -Ibass -I mlx/libmlx_Linux.a -o $@ -c $<
 
 clean :
 	${RM} ${OBJS} ${OBJS_BONUS}
@@ -53,4 +53,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY	: clean fclean all re 
+.PHONY	: clean fclean all re bonus

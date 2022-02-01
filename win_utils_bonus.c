@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:45:10 by fboumell          #+#    #+#             */
-/*   Updated: 2022/02/01 17:39:42 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:12:16 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_init_window(t_data *data)
 void	ft_loop(t_data data)
 {
 	mlx_loop_hook(data.mlx, &ft_image, &data);
-	mlx_hook(data.mlx_win, 2, 1L << 0, &ft_keypress, &data);	
+	mlx_hook(data.mlx_win, 2, 1L << 0, &ft_keypress, &data);
 	mlx_hook(data.mlx_win, 17, 0L, &ft_red_cross, &data);
 	mlx_loop(data.mlx);
 }

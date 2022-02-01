@@ -6,7 +6,7 @@
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:44:29 by fboumell          #+#    #+#             */
-/*   Updated: 2022/02/01 17:54:16 by fboumell         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:12:43 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_display_counter(t_data *data)
 	char	*moves;
 
 	mlx_put_image_to_window(data->mlx,
-        data->mlx_win, data->image.wall, 0, 0);
+		data->mlx_win, data->image.wall, 0, 0);
 	moves = ft_itoa(data->count_moves);
 	mlx_string_put(data->mlx, data->mlx_win, 20, 20, 0x000000, moves);
 	free(moves);
