@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 13:48:56 by fboumell          #+#    #+#             */
-/*   Updated: 2022/02/01 14:07:29 by fboumell         ###   ########.fr       */
+/*   Created: 2022/02/01 14:44:53 by fboumell          #+#    #+#             */
+/*   Updated: 2022/02/01 17:27:44 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "mlx/mlx.h"
 # include "gnl/get_next_line.h"
@@ -80,7 +80,7 @@ int		ft_check_extension(char *av);
 int		main(int ac, char **av);
 
 	/* win_utils.c */
-int		ft_close_escape(int keypress, t_data*win);
+int		ft_keypress(int keypress, t_data*win);
 int		ft_red_cross(t_data *win);
 int		ft_init_window(t_data *data);
 void	ft_loop(t_data data);
@@ -96,6 +96,7 @@ void	ft_create_map(char *s, t_data *data);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_strlen(const char *s);
+char	*ft_itoa(int n);
 
 	/* check_map_struct.c */
 int		ft_check_sizeofmap(t_data *data);
@@ -123,6 +124,7 @@ int		ft_image(t_data *data);
 int		ft_check_next_compo(t_data *data, char keycode, char component);
 void	ft_collectible(t_data *data, char keycode);
 int		ft_you_win(t_data *data);
+void	ft_display_counter(t_data *data);
 void	ft_moves(t_data *data, char keycode);
 
 #endif

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   initialize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 12:23:45 by fboumell          #+#    #+#             */
-/*   Updated: 2022/02/01 17:01:45 by fboumell         ###   ########.fr       */
+/*   Created: 2022/02/01 14:44:22 by fboumell          #+#    #+#             */
+/*   Updated: 2022/02/01 17:03:36 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_initialize_map(t_data *data)
 {
