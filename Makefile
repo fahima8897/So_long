@@ -5,22 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fboumell <fboumell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/16 13:47:55 by fboumell          #+#    #+#              #
-#    Updated: 2022/02/02 10:18:40 by fboumell         ###   ########.fr        #
+#    Created: 2022/02/02 10:23:46 by fboumell          #+#    #+#              #
+#    Updated: 2022/02/02 11:18:48 by fboumell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 NAME_BONUS = so_long_bonus
-
-CC	= clang
-
-CFLAGS	= -Wall -Werror -Werror -g
-
-FL_MLX = -ldl -lmlx -Lmlx -lm -lXext -lX11
-
-RM	= rm -f
 
 SRCS	= win_utils.c so_long.c read_map.c utils.c gnl/get_next_line.c gnl/get_next_line_utils.c \
 		check_map_struct.c check_map_compo.c initialize.c image.c moves.c
@@ -32,18 +24,26 @@ OBJS = ${SRCS:.c=.o}
 
 OBJS_BONUS = ${BONUS:.c=.o}
 
-all	: ${NAME}
+CC = clang
+
+RM = rm -f
+
+CFLAGS = -Wall -Wextra -Werror -g
+
+FL_MLX = -ldl -lmlx -Lmlx -lm -lXext -lX11
+
+all : ${NAME}
 
 $(NAME) : $(OBJS)
 	make -s -C ./mlx
-	${CC} ${CFLAGS} -I mlx/libmlx_Linux.a ${OBJS} -o ${NAME} $(FL_MLX)
+	${CC} ${CFLAGS} -I mlx/libmlx_Linux.a ${SRCS} -o ${NAME} $(FL_MLX)
 
 ${NAME_BONUS} : ${OBJS_BONUS}
 	make -s -C ./mlx
-	${CC} ${CFLAGS} -I mlx/libmlx_Linux.a ${OBJS_BONUS} -o ${NAME_BONUS} $(FL_MLX)
+	${CC} ${CFLAGS} -I mlx/libmlx_Linux.a ${BONUS} -o ${NAME_BONUS} $(FL_MLX)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -Imlx -Ibass -I mlx/libmlx_Linux.a -o $@ -c $<
+%.o:%.c
+	${CC} ${FLAGS} -Imlx -Ibass -I mlx/libmlx_Linux.a -o $@ -c $<
 
 clean :
 	${RM} ${OBJS} ${OBJS_BONUS}
@@ -53,4 +53,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY	: clean fclean all re bonus
+.PHONY : clean fclean re
